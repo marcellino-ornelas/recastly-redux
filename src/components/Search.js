@@ -1,5 +1,5 @@
 import React from 'react';
- 
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -22,11 +22,14 @@ class Search extends React.Component {
         <input
           className="form-control"
           type="text"
-          value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
-        <button className="btn hidden-sm-down">
-          <span className="glyphicon glyphicon-search"></span>
+        <button
+          className="btn hidden-sm-down"
+          onClick={(() =>
+            this.props.handleSearchInputChange(this.state.value)).bind(this)}
+        >
+          <span className="glyphicon glyphicon-search" />
         </button>
       </div>
     );
